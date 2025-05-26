@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Exemple</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f5f5f5;
+            margin: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .content {
+            background: white;
+            padding: 20px;
+            display: inline-block;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+       
+         .next-button {
+            margin-top: 20px;
+            font-size: 18px;
+            background-color: #2980b9;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .next-button:hover {
+            background-color: #1f6690;
+        }
+    </style>
+    </head>
+    
+    <body>
+        <h1>Exemple sans preciseer l'agent("by someone")</h1>
+        <div class="content">
+            <p><strong>✅ Active : </strong>Someone stole my phone <br><strong>✅ Passive :</strong>My phone was stolen <br>➡ Mon téléphone a été volé</p> 
+            <p><strong>✅ Active :</strong>They built this house in 1950<br><strong>✅ Passive :</strong>This house was built in 1950<br>➡Cette maison a été construite en 1950</p>
+            <p><strong>✅ Active :</strong>They are repairing the road.<br><strong>✅ Passive :</strong>The road is being repaired<br>➡ La route est en train d’être réparée</p>
+            <br>
+            <p><strong>💡 Remarque importante :</strong> si tu veux insister sur qui fait l'action, tu peu ajouter <strong> By</strong></p>
+            <p>✅ The Mona Lisa was painted by Leonardo da Vinci<br>➡ La Joconde a été peinte par Léonard de Vinci</p>
+            <p>✅ This book was written by J.K. Rowling<br>➡ Ce livre a été écrit par J.K. Rowling</p>
+        </div>
+        <br>
+       <!-- Bouton Next -->
+    <button class="next-button" onclick="goToNextLesson()">Next →</button>
+    <script>
+          // Fonction pour aller à la page suivante
+        function goToNextLesson() {
+            window.location.href = "/cours/avance/passive/QuizA3"; // Remplacez par la vraie URL de la prochaine leçon
+        }
+    </script>
+    </body>
+</html>

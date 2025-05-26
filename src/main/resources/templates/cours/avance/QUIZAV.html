@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+
+<html>
+<head>
+    <title>Quiz d'anglais</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .quiz-section {
+            margin-top: 30px;
+        }
+        .question {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .option {
+            display: block;
+            margin: 5px;
+            cursor: pointer;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #219150;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-section">
+    <h2>Quiz : Testez vos connaissances</h2>
+    <div id="quiz-container">
+        <p class="question"></p>
+        <div id="options"></div>
+        <button onclick="checkAnswer()">Valider</button>
+        <p id="result"></p>
+    </div>
+</div>
+
+<script>
+    const questions = [
+        { question: "discours indirect (reported speech) est utilisé pour rapporter ce que quelqu’un", options: ["a dit", "peut dire ", "ne peut dire"], correctIndex: 0 },
+        { question: "Avec I/he/she/it, on utilise____ au lieu de___ dans un langage formel.", options: ["Were/Was", " Where/was", "was/were"], correctIndex: 0 },
+        { question: "le conditionnel de type 2 se forme ", options: ["if + prétérit simple, would + base verbale", "if + would + base verbale", "if + prétérit simple, would + verbe"], correctIndex: 0 },
+        { question: "Transforme cette phrase Where do you live? en discourt indirect", options: ["She asked where I lived", "She asked where I live", "She asked where you lived"], correctIndex: 0 },
+        { question: "met la phrase suivante The teacher corrected the exams  en voix passive ", options: ["The exams are corrected by the teacher", "The exams where corrected by the teacher", "The exams were corrected by the teacher"], correctIndex: 2 },
+         { question: "Complétez la phrase : If I ___ (be) you, I would take the job.", options: ["am", "was", "were"], correctIndex: 2 },
+         { question: "The Mona Lisa was painted by Leonardo da Vinci est une phrase a la ", options: ["Voix passive", " Voix active"], correctIndex: 0 },
+         { question: "My exprime une possibilité ", options: ["Plus forte", "Plus faible"], correctIndex: 0 },
+         { question: "Must have + participe passé est utilisé pour exprimer la probabilité ", options: ["au passé", "au futur"], correctIndex: 0 }
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function showQuestion() {
+        let questionElement = document.querySelector(".question");
+        let optionsContainer = document.getElementById("options");
+
+        let currentQuestion = questions[currentQuestionIndex];
+        questionElement.textContent = currentQuestion.question;
+
+        optionsContainer.innerHTML = "";
+        currentQuestion.options.forEach((option, index) => {
+            optionsContainer.innerHTML += `
+                <label class="option">
+                    <input type="radio" name="q" value="${index}"> ${option}
+                </label><br>
+            `;
+        });
+
+        document.getElementById("result").innerHTML = "";
+    }
+
+    function checkAnswer() {
+        let selected = document.querySelector('input[name="q"]:checked');
+        let resultText = document.getElementById("result");
+
+        if (selected) {
+            let selectedIndex = parseInt(selected.value);
+            if (selectedIndex === questions[currentQuestionIndex].correctIndex) {
+                resultText.innerHTML = "✅ Bonne réponse !";
+                resultText.style.color = "green";
+                score++; 
+            } else {
+                resultText.innerHTML = "❌ Mauvaise réponse.";
+                resultText.style.color = "red";
+            }
+
+            setTimeout(() => {
+                currentQuestionIndex++;
+                if (currentQuestionIndex < questions.length) {
+                    showQuestion();
+                } else {
+                    showFinalResult();
+                }
+            }, 2000);
+        } else {
+            resultText.innerHTML = "Veuillez choisir une réponse.";
+            resultText.style.color = "orange";
+        }
+    }
+
+    function showFinalResult() {
+        let quizContainer = document.getElementById("quiz-container");
+        let finalScore = (score / questions.length) * 100; 
+
+        if (finalScore >= 80) {
+            quizContainer.innerHTML = `<h3>🎉 Bravo ! Vous avez réussi avec ${finalScore.toFixed(2)} % de bonnes réponses !<br>Vous allez être dirigé vers le prochain cour.</h3>`;
+            setTimeout(() => {
+                window.location.href = "/cours/avance"; 
+            }, 3000);
+        } else {
+            quizContainer.innerHTML = `<h3>❌ Désolé, vous avez échoué avec ${finalScore.toFixed(2)} % de bonnes réponses.<br>Vous allez être redirigé vers une page de révision.</h3>`;
+            setTimeout(() => {
+                window.location.href = "/cours/avance/QUIZAV"; 
+            }, 3000);
+        }
+    }
+
+    showQuestion();
+</script>
+
+</body>
+</html>

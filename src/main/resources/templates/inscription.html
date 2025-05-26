@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscription</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        form { display: inline-block; text-align: left; padding: 20px; border: 1px solid #ccc; }
+        input, button { display: block; width: 100%; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h2>Inscription</h2>
+
+    <div th:if="${error}" style="color: red;">
+        <p th:text="${error}"></p>
+    </div>
+
+    <form th:action="@{/inscription}" method="post" th:object="${user}">
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" name="nom" th:field="*{nom}" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" th:field="*{email}" required>
+
+        <label for="motDePasse">Mot de passe:</label>
+        <input type="password" id="motDePasse" name="motDePasse" th:field="*{motDePasse}" required>
+
+        <button type="submit">S'inscrire</button>
+    </form>
+
+    <p>Déjà inscrit ? <a th:href="@{/connexion}">Se connecter</a></p>
+</body>
+</html>

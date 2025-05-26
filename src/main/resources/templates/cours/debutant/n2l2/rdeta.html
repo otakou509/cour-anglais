@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Routine Quotidienne - Leçon détaillée avec exercice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fefefe;
+            padding: 20px;
+            color: #333;
+            max-width: 900px;
+            margin: auto;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .section {
+            background-color: #f5f9fc;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .vocab, .note, .exemple {
+            background-color: #e8f0fe;
+            border-left: 5px solid #3498db;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .exercise {
+            background-color: #fffbe6;
+            border-left: 5px solid #f1c40f;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        input[type="text"] {
+            padding: 6px;
+            width: 60%;
+        }
+        button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #21618c;
+        }
+        .feedback {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+         .next-button {
+            margin-top: 20px;
+            font-size: 18px;
+            background-color: #2980b9;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .next-button:hover {
+            background-color: #1f6690;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Leçon : Parler de sa routine quotidienne</h1>
+
+    <div class="section">
+        <h2>1. Vocabulaire essentiel</h2>
+        <div class="vocab">
+            <ul>
+                <li>wake up – se réveiller</li>
+                <li>get up – se lever</li>
+                <li>brush my teeth – me brosser les dents</li>
+                <li>take a shower – prendre une douche</li>
+                <li>have breakfast – prendre le petit déjeuner</li>
+                <li>go to school – aller à l'école</li>
+                <li>study – étudier</li>
+                <li>have lunch – déjeuner</li>
+                <li>do my homework – faire mes devoirs</li>
+                <li>have dinner – dîner</li>
+                <li>go to bed – aller dormir</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>2. Grammaire : Le présent simple</h2>
+        <p>Pour parler de ce que tu fais chaque jour, tu utilises le <strong>présent simple</strong>.</p>
+        <div class="exemple">
+            I wake up at 6 a.m. <br>
+            She takes a shower every morning. <br>
+            They go to school by bus.
+        </div>
+
+        <div class="note">
+            <strong>Attention !</strong> À la 3e personne du singulier (<em>he, she, it</em>), on ajoute souvent <strong>-s</strong> ou <strong>-es</strong> au verbe :
+            <br>
+            He eats breakfast at 7 a.m.<br>
+            She watches TV after dinner.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>3. Exemple de routine complète</h2>
+        <div class="exemple">
+            I wake up at 6:30.<br>
+            I get up and brush my teeth.<br>
+            Then I take a shower and have breakfast.<br>
+            I go to school at 8 a.m.<br>
+            In the afternoon, I do my homework.<br>
+            I have dinner at 7 p.m. and go to bed at 9:30.
+        </div>
+    </div>
+
+    <div class="section exercise">
+        <h2>📝 Exercice : Complète les phrases avec le bon verbe</h2>
+        <p>Écris le verbe manquant (au présent simple).</p>
+
+        <form id="exercise-form" onsubmit="return checkAnswers();">
+            <p>1. I ______ up at 7 o’clock.</p>
+            <input type="text" id="q1">
+
+            <p>2. She ______ a shower every morning.</p>
+            <input type="text" id="q2">
+
+            <p>3. We ______ breakfast at 7:30.</p>
+            <input type="text" id="q3">
+
+            <p>4. They ______ to school by bus.</p>
+            <input type="text" id="q4">
+
+            <p>5. He ______ his homework after lunch.</p>
+            <input type="text" id="q5">
+
+            <br><button type="submit">Vérifier mes réponses</button>
+        </form>
+
+        <p id="feedback" class="feedback"></p>
+    </div>
+    
+    <br>
+    <div style="text-align: center;">
+     <button  class="next-button" onclick="window.location.href='/cours/routine'"><--</button>
+
+    <button  class="next-button" onclick="window.location.href='/cours/debutant/n2l2/Qr'">--></button>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            const answers = [
+                document.getElementById("q1").value.trim().toLowerCase(),
+                document.getElementById("q2").value.trim().toLowerCase(),
+                document.getElementById("q3").value.trim().toLowerCase(),
+                document.getElementById("q4").value.trim().toLowerCase(),
+                document.getElementById("q5").value.trim().toLowerCase()
+            ];
+
+            const correct = ["wake", "takes", "have", "go", "does"];
+            let score = 0;
+
+            for (let i = 0; i < answers.length; i++) {
+                if (answers[i] === correct[i]) {
+                    score++;
+                }
+            }
+
+            const feedback = document.getElementById("feedback");
+            if (score === correct.length) {
+                feedback.textContent = `✅ Bravo ! Tu as tout juste (${score}/5).`;
+                feedback.style.color = "green";
+            } else {
+                feedback.textContent = `❌ Tu as ${score}/5 réponses correctes. Essaie encore !`;
+                feedback.style.color = "red";
+            }
+
+            return false;
+        }
+    </script>
+
+</body>
+</html>

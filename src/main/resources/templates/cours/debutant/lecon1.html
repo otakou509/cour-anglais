@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leçon 1 - L'Alphabet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        table {
+            width: 60%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        .quiz-section {
+            margin-top: 30px;
+        }
+        .option {
+            display: block;
+            margin: 5px;
+            cursor: pointer;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #219150;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Leçon 1 : L'Alphabet en Anglais</h1>
+    <p>Découvrez l'alphabet anglais avec la prononciation en API.</p>
+
+    <table>
+        <tr>
+            <th>Lettre</th>
+            <th>Prononciation (API)</th>
+        </tr>
+        <tr><td>A</td><td>/eɪ/</td></tr>
+        <tr><td>B</td><td>/biː/</td></tr>
+        <tr><td>C</td><td>/siː/</td></tr>
+        <tr><td>D</td><td>/diː/</td></tr>
+        <tr><td>E</td><td>/iː/</td></tr>
+        <tr><td>F</td><td>/ɛf/</td></tr>
+        <tr><td>G</td><td>/dʒiː/</td></tr>
+        <tr><td>H</td><td>/eɪtʃ/</td></tr>
+        <tr><td>I</td><td>/aɪ/</td></tr>
+        <tr><td>J</td><td>/dʒeɪ/</td></tr>
+        <tr><td>K</td><td>/keɪ/</td></tr>
+        <tr><td>L</td><td>/ɛl/</td></tr>
+        <tr><td>M</td><td>/ɛm/</td></tr>
+        <tr><td>N</td><td>/ɛn/</td></tr>
+        <tr><td>O</td><td>/oʊ/</td></tr>
+        <tr><td>P</td><td>/piː/</td></tr>
+        <tr><td>Q</td><td>/kjuː/</td></tr>
+        <tr><td>R</td><td>/ɑːr/</td></tr>
+        <tr><td>S</td><td>/ɛs/</td></tr>
+        <tr><td>T</td><td>/tiː/</td></tr>
+        <tr><td>U</td><td>/juː/</td></tr>
+        <tr><td>V</td><td>/viː/</td></tr>
+        <tr><td>W</td><td>/ˈdʌb.əl.juː/</td></tr>
+        <tr><td>X</td><td>/ɛks/</td></tr>
+        <tr><td>Y</td><td>/waɪ/</td></tr>
+        <tr><td>Z</td><td>/ziː/ (US) /zɛd/ (UK)</td></tr>
+    </table>
+
+    <div class="quiz-section">
+        <h2>Quiz : Testez vos connaissances</h2>
+        <p>Quelle est la prononciation correcte de la lettre "J" ?</p>
+        <label class="option"><input type="radio" name="q1" value="1"> /dʒeɪ/</label>
+        <label class="option"><input type="radio" name="q1" value="2"> /keɪ/</label>
+        <label class="option"><input type="radio" name="q1" value="3"> /ɛf/</label>
+        <button onclick="checkAnswer()">Valider</button>
+        <p id="result"></p>
+    </div>
+
+    <button onclick="window.location.href='/cours/debutant/lecon2'">Next →</button>
+
+    <script>
+        function checkAnswer() {
+            var selected = document.querySelector('input[name="q1"]:checked');
+            var resultText = document.getElementById("result");
+            if (selected) {
+                if (selected.value === "1") {
+                    resultText.innerHTML = "✅ Bonne réponse !";
+                    resultText.style.color = "green";
+                } else {
+                    resultText.innerHTML = "❌ Mauvaise réponse. Réessayez !";
+                    resultText.style.color = "red";
+                }
+            } else {
+                resultText.innerHTML = "Veuillez choisir une réponse.";
+                resultText.style.color = "orange";
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 2 mars 2025, 16:39:23
+    Author     : owner
+*/
+/* Style général */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #acb6e5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+h2 {
+    color: #fff;
+}
+
+/* Style du formulaire */
+form {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    width: 300px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #fff;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    background: #ff6384;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #e55060;
+}
+
+/* Graphique */
+canvas {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+/*entete*/
+header {
+            background-color: #2980b9;
+            color: white;
+            padding: 20px;
+            text-align: left;
+}
+
+a {
+  text-decoration: none; /* Enlève le soulignement */
+  color: inherit;         /* Prend la couleur du texte parent */
+}
+
+a :hover {
+            background-color: #1f6690;
+        }
+
+li {
+  list-style: none;       /* Enlève le point devant les <li> */
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+        

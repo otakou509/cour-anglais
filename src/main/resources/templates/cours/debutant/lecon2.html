@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leçon 2 - Prononciation de base</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+      
+        .option {
+            display: block;
+            margin: 5px;
+            cursor: pointer;
+        }
+       .next-button {
+            margin-top: 20px;
+            font-size: 18px;
+            background-color: #2980b9;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .next-button:hover {
+            background-color: #1f6690;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Leçon 2 : Prononciation de base</h1>
+    <p>Apprenez la prononciation des mots courants en anglais avec l'alphabet phonétique international (API).</p>
+
+    <table>
+        <tr>
+            <th>Mot en anglais</th>
+            <th>Prononciation (API)</th>
+            <th>Traduction</th>
+            <th>Prononciation</th>
+        </tr>
+        <tr>
+            <td>Hello</td>
+            <td>/həˈloʊ/</td>
+            <td>Bonjour</td>
+            <td><button onclick="speakWord('Hello')">🔊 </button></td>
+        </tr>
+        <tr>
+            <td>Apple</td>
+            <td>/ˈæp.əl/</td>
+            <td>Pomme</td>
+            <td><button onclick="speakWord('Apple')">🔊</button></td>
+        </tr>
+        <tr>
+            <td>Water</td>
+            <td>/ˈwɔː.t̬ɚ/</td>
+            <td>Eau</td>
+            <td><button onclick="speakWord('Water')">🔊</button></td>
+        </tr>
+        <tr>
+            <td>Thank you</td>
+            <td>/ˈθæŋk juː/</td>
+            <td>Merci</td>
+            <td><button onclick="speakWord('Thank you')">🔊</button></td>
+                
+        </tr>
+        <tr>
+            <td>School</td>
+            <td>/skuːl/</td>
+            <td>École</td>
+            <td><button onclick="speakWord('School')">🔊</button></td>
+        </tr>
+    </table>
+
+   
+        <button class="next-button" onclick="window.location.href='/cours/debutant'"><--</button>
+
+        <button class="next-button" onclick="window.location.href='/cours/debutant/lecon1/apple'">--></button>
+
+    <script>
+        
+         function speakWord(word) {
+            let speech = new SpeechSynthesisUtterance(word);
+            speech.lang = "en-US";
+            speech.rate = 1;
+            speech.pitch = 1;
+            window.speechSynthesis.speak(speech);
+        }
+    </script>
+
+</body>
+</html>

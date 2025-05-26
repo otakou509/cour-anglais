@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Leçon 3 : Poser des questions simples</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7faff;
+      margin: 0;
+      padding: 0 20px;
+    }
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 30px;
+      text-align: center;
+      border-radius: 0 0 10px 10px;
+    }
+    section {
+      max-width: 1000px;
+      margin: 30px auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+    .conseil {
+      background-color: #e8f5e9;
+      border-left: 5px solid #43a047;
+      padding: 15px;
+      margin-top: 20px;
+    }
+    .quiz {
+      margin-top: 30px;
+      background-color: #f1f8e9;
+      padding: 20px;
+      border-left: 4px solid #8bc34a;
+    }
+    input {
+      padding: 6px;
+      margin: 5px 0;
+    }
+    button {
+      padding: 8px 15px;
+      background-color: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .result {
+      margin-top: 15px;
+    }
+    .correct { color: green; }
+    .incorrect { color: red; }
+    
+     .next-button {
+            margin-top: 20px;
+            font-size: 18px;
+            background-color: #2980b9;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .next-button:hover {
+            background-color: #1f6690;
+        }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Leçon 3 : Poser des questions simples</h1>
+  <p>Comprendre les mots interrogatifs et former des questions correctement</p>
+</header>
+
+<section>
+  <h2>1️⃣ À quoi servent les mots interrogatifs ?</h2>
+  <p>Les mots interrogatifs permettent de poser des questions spécifiques. Voici les principaux :</p>
+
+  <table>
+    <tr><th>Mot</th><th>Traduction</th><th>Utilisation</th><th>Exemple</th></tr>
+    <tr><td><strong>What</strong></td><td>Quoi / Que</td><td>Pour demander une chose</td><td>What is your name?</td></tr>
+    <tr><td><strong>Where</strong></td><td>Où</td><td>Pour demander un lieu</td><td>Where do you live?</td></tr>
+    <tr><td><strong>When</strong></td><td>Quand</td><td>Pour demander une date / heure</td><td>When is the party?</td></tr>
+    <tr><td><strong>Who</strong></td><td>Qui</td><td>Pour demander une personne</td><td>Who is calling?</td></tr>
+    <tr><td><strong>How</strong></td><td>Comment</td><td>Pour demander une manière / moyen</td><td>How do you go to school?</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>2️⃣ Structure des questions</h2>
+  <p>Les questions simples en anglais suivent une structure spécifique :</p>
+
+  <ul>
+    <li><strong>Présent simple :</strong> <code>Mot interrogatif + do/does + sujet + verbe ?</code><br>Ex: What <strong>do</strong> you <strong>like</strong>?</li>
+    <li><strong>Passé simple :</strong> <code>Mot interrogatif + did + sujet + verbe (base) ?</code><br>Ex: When <strong>did</strong> she <strong>arrive</strong>?</li>
+    <li><strong>Verbe être :</strong> <code>Mot interrogatif + is/are/am + sujet ?</code><br>Ex: Who <strong>is</strong> that girl?</li>
+  </ul>
+</section>
+
+<section>
+  <h2>3️⃣ Exemples supplémentaires</h2>
+  <ul>
+    <li>What do you do on weekends?</li>
+    <li>Where does your brother work?</li>
+    <li>When do we have class?</li>
+    <li>Who wants to go first?</li>
+    <li>How does it work?</li>
+  </ul>
+</section>
+
+<section class="conseil">
+  <h2>💡 Astuces</h2>
+  <ul>
+    <li>Utilise <strong>do</strong> pour I/you/we/they et <strong>does</strong> pour he/she/it</li>
+    <li>N'oublie pas de mettre le verbe à sa forme de base</li>
+    <li>Si le mot interrogatif est le sujet de la question, on ne met pas d’auxiliaire : <br><code>Who called you?</code></li>
+  </ul>
+</section>
+
+<section class="quiz">
+  <h2>🧪 Petit Quiz</h2>
+  <form id="quizForm">
+    <p>1. _____ is your teacher? <input type="text" id="q1"></p>
+    <p>2. _____ do you live? <input type="text" id="q2"></p>
+    <p>3. _____ does she go to school? <input type="text" id="q3"></p>
+    <p>4. _____ is this book? <input type="text" id="q4"></p>
+    <p>5. _____ do they arrive? <input type="text" id="q5"></p>
+    <button type="button" onclick="corriger()">Corriger</button>
+  </form>
+  <div class="result" id="resultat"></div>
+</section>
+
+<script>
+function corriger() {
+  const bonnesReponses = {
+    q1: "who",
+    q2: "where",
+    q3: "how",
+    q4: "what",
+    q5: "when"
+  };
+
+  let resultat = "";
+  let score = 0;
+
+  for (let id in bonnesReponses) {
+    const reponse = document.getElementById(id).value.trim().toLowerCase();
+    const correcte = bonnesReponses[id];
+    if (reponse === correcte) {
+      resultat += `<p class="correct">✅ ${id.toUpperCase()} : Correct</p>`;
+      score++;
+    } else {
+      resultat += `<p class="incorrect">❌ ${id.toUpperCase()} : Faux (réponse : ${correcte})</p>`;
+    }
+  }
+
+  resultat += `<hr><strong>Score : ${score}/5</strong>`;
+  document.getElementById("resultat").innerHTML = resultat;
+}
+</script>
+  <br>
+    <div style="text-align: center;">
+     <button  class="next-button" onclick="window.location.href='/cours/debutant/n2l2/question'"><--</button>
+
+    <button  class="next-button" onclick="window.location.href='/cours/debutant/n2l2/QuiQ'">--></button>
+    </div>
+</body>
+</html>

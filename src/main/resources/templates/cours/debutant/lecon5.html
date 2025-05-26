@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+
+<html>
+<head>
+    <title>Quiz d'anglais</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .quiz-section {
+            margin-top: 30px;
+        }
+        .question {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .option {
+            display: block;
+            margin: 5px;
+            cursor: pointer;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #219150;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-section">
+    <h2>Quiz : Testez vos connaissances</h2>
+    <div id="quiz-container">
+        <p class="question"></p>
+        <div id="options"></div>
+        <button onclick="checkAnswer()">Valider</button>
+        <p id="result"></p>
+    </div>
+</div>
+
+<script>
+    const questions = [
+        { question: "Comment dit-on 'Je m'appelle Jhon' en anglais ?", options: ["Nice to meet you Jhon", "My name is Jhon", "Hello Jhon"], correctIndex: 1 },
+        { question: "'Nice to meet you' est utilisé lorsqu'on rencontre une personne pour la première fois ?", options: ["Oui", "Non"], correctIndex: 0 },
+        { question: "'Nice to meet you' signifie :", options: ["Enchanté(e) de vous rencontrer", "Naïss te meet you", "Nice to meet you"], correctIndex: 0 },
+        { question: "Le mot Good Morning veut dire :", options: ["Bonjour", "Bonsoir", "Hello"], correctIndex: 0 },
+        { question: "'Good Morning' est généralement utilisé : ?", options: ["Après-midi", "Le soir", "Matin"], correctIndex: 2 },
+        { question: "Comment dire 'Comment ça va ?' en anglais", options: ["Salut", "Good Morning", "How are you"], correctIndex: 2 },
+        { question: "Donnez la traduction du mot 'Good evening Sir'", options: ["Salut", "Bonsoir Monsieur", "How are you"], correctIndex: 1 },
+        { question: "Quand vous voulez attirer poliment l'attention de quelqu'un", options: ["Hello, excuse me", "Good Morning, how are you?", "How are you"], correctIndex: 0 },
+        { question: "Quelle est la prononciation correcte du mot 'Apple' ?", options: ["/ˈæp.əl/", "/ˈwa.tɚ/", "/skuːl/"], correctIndex: 0 },
+        { question: "Quelle est la prononciation correcte du mot 'Water' ?", options: ["/wɔː.tər/", "/skuːl/", "/ˈæp.əl/"], correctIndex: 0 },
+        { question: "Quelle est la prononciation correcte du mot 'School' ?", options: ["/ˈæp.əl/", "/skuːl/", "/ˈwa.tɚ/"], correctIndex: 1 }
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function showQuestion() {
+        let questionElement = document.querySelector(".question");
+        let optionsContainer = document.getElementById("options");
+
+        let currentQuestion = questions[currentQuestionIndex];
+        questionElement.textContent = currentQuestion.question;
+
+        optionsContainer.innerHTML = "";
+        currentQuestion.options.forEach((option, index) => {
+            optionsContainer.innerHTML += `
+                <label class="option">
+                    <input type="radio" name="q" value="${index}"> ${option}
+                </label><br>
+            `;
+        });
+
+        document.getElementById("result").innerHTML = "";
+    }
+
+    function checkAnswer() {
+        let selected = document.querySelector('input[name="q"]:checked');
+        let resultText = document.getElementById("result");
+
+        if (selected) {
+            let selectedIndex = parseInt(selected.value);
+            if (selectedIndex === questions[currentQuestionIndex].correctIndex) {
+                resultText.innerHTML = "✅ Bonne réponse !";
+                resultText.style.color = "green";
+                score++; 
+            } else {
+                resultText.innerHTML = "❌ Mauvaise réponse.";
+                resultText.style.color = "red";
+            }
+
+            setTimeout(() => {
+                currentQuestionIndex++;
+                if (currentQuestionIndex < questions.length) {
+                    showQuestion();
+                } else {
+                    showFinalResult();
+                }
+            }, 2000);
+        } else {
+            resultText.innerHTML = "Veuillez choisir une réponse.";
+            resultText.style.color = "orange";
+        }
+    }
+
+    function showFinalResult() {
+        let quizContainer = document.getElementById("quiz-container");
+        let finalScore = (score / questions.length) * 100; 
+
+        if (finalScore >= 80) {
+            quizContainer.innerHTML = `<h3>🎉 Bravo ! Vous avez réussi avec ${finalScore.toFixed(2)} % de bonnes réponses !<br>Vous allez être dirigé vers le prochain cour.</h3>`;
+            setTimeout(() => {
+                window.location.href = "/cours/debutant/Niveau2"; 
+            }, 3000);
+        } else {
+            quizContainer.innerHTML = `<h3>❌ Désolé, vous avez échoué avec ${finalScore.toFixed(2)} % de bonnes réponses.<br>Vous allez être redirigé vers une page de révision.</h3>`;
+            setTimeout(() => {
+                window.location.href = "/cours/debutant/lecon5"; 
+            }, 3000);
+        }
+    }
+
+    showQuestion();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Prépositions de lieu</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        section {
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #4CAF50;
+        }
+
+        .exemples, .exercices {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4CAF50;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        ul {
+            line-height: 1.8;
+        }
+
+        .exercices input[type="text"] {
+            width: 100px;
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+        }
+
+        .correct {
+            color: green;
+        }
+
+        .incorrect {
+            color: red;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: gray;
+        }
+        .next-button {
+            margin-top: 20px;
+            font-size: 18px;
+            background-color: #2980b9;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .next-button:hover {
+            background-color: #1f6690;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Les Prépositions de Lieu en Anglais</h1>
+    <p>Comprenez comment décrire la position ou l’emplacement de quelque chose</p>
+</header>
+
+<section>
+    <h2>📘 Qu’est-ce qu’une préposition de lieu ?</h2>
+    <p>Une <strong>préposition de lieu</strong> permet d’indiquer l’endroit où se trouve une personne ou un objet. Elle répond à la question <em>“où ?”</em></p>
+</section>
+
+<section>
+    <h2>🧭 Prépositions courantes avec explication</h2>
+    <ul>
+        <li><strong>in</strong> → à l'intérieur de quelque chose  
+             <button onclick="speakWord('in')">🔊</button>
+            <br><em>The keys are <strong>in</strong> the drawer.</em><button onclick="speakWord('The keys are in the drawer')">🔊</button></li>
+        <li><strong>on</strong> → sur une surface  
+              <button onclick="speakWord('on')">🔊</button>
+            <br><em>The book is <strong>on</strong> the table.</em><button onclick="speakWord('The book is on the table')">🔊</button> </li>
+        <li><strong>under</strong> → sous quelque chose  
+               <button onclick="speakWord('under')">🔊</button> 
+            <br><em>The ball is <strong>under</strong> the bed.</em><button onclick="speakWord('The ball is under the bed')">🔊</button>  </li>
+        <li><strong>next to</strong> / <strong>beside</strong> → à côté de <button onclick="speakWord('next to / beside')">🔊</button>  
+            <br><em>She is sitting <strong>next to</strong> her brother.</em> <button onclick="speakWord('She is sitting next to her brother')">🔊</button></li>
+        <li><strong>behind</strong> → derrière <button onclick="speakWord('behind')">🔊</button> 
+            <br><em>The chair is <strong>behind</strong> the desk.</em><button onclick="speakWord('The chair is behind the desk')">🔊</button></li>
+        <li><strong>in front of</strong> → devant <button onclick="speakWord('in front of')">🔊</button>  
+            <br><em>The car is <strong>in front of</strong> the house.</em><button onclick="speakWord('The car is in front of the house')">🔊</button></li>
+        <li><strong>between</strong> → entre deux choses <button onclick="speakWord('between')">🔊</button> 
+            <br><em>The school is <strong>between</strong> the bank and the hospital.</em><button onclick="speakWord('The school is between the bank and the hospital')">🔊</button></li>
+    </ul>
+</section>
+
+<section class="exemples">
+    <h2>🔍 Exemples visuels :</h2>
+    <p>
+        🪑 The cat is <strong>under</strong> the chair.<button onclick="speakWord('The cat is under the chair')">🔊</button><br>
+        📦 The box is <strong>on</strong> the shelf.<button onclick="speakWord('The box is on the shelf')">🔊</button><br>
+        🚪 The bag is <strong>behind</strong> the door.<br>
+        🧒 The boy is <strong>in front of</strong> the blackboard.
+    </p>
+</section>
+
+<section class="exercices">
+    <h2>✍️ Exercices : Complétez avec la bonne préposition</h2>
+    <form id="quizForm">
+        <ol>
+            <li>The book is <input type="text" id="q1"> the table. (sur)</li>
+            <li>The shoes are <input type="text" id="q2"> the bed. (sous)</li>
+            <li>The TV is <input type="text" id="q3"> the sofa and the table. (entre)</li>
+            <li>The pen is <input type="text" id="q4"> the drawer. (dans)</li>
+            <li>The chair is <input type="text" id="q5"> the desk. (derrière)</li>
+        </ol>
+        <button type="button" onclick="corriger()">Corriger</button>
+    </form>
+
+    <div class="result" id="resultat"></div>
+</section>
+
+<footer>
+    © 2025 - Apprentissage de l'anglais pour débutants
+</footer>
+    <br>
+    <div style="text-align: center;">
+     <button  class="next-button" onclick="window.location.href='/cours/debutant/n2l2/preposition'"><--</button>
+
+    <button  class="next-button" onclick="window.location.href='/cours/debutant/n2l2/time'">--></button>
+    </div>
+<script>
+function corriger() {
+    const reponses = {
+        q1: "on",
+        q2: "under",
+        q3: "between",
+        q4: "in",
+        q5: "behind"
+    };
+
+    let score = 0;
+    let feedback = "";
+
+    for (let q in reponses) {
+        const userAnswer = document.getElementById(q).value.trim().toLowerCase();
+        if (userAnswer === reponses[q]) {
+            feedback += `<p class="correct">✅ Question ${q.slice(1)} : Correct</p>`;
+            score++;
+        } else {
+            feedback += `<p class="incorrect">❌ Question ${q.slice(1)} : Incorrect (Réponse attendue : <strong>${reponses[q]}</strong>)</p>`;
+        }
+    }
+
+    feedback += `<hr><strong>Votre score : ${score} / ${Object.keys(reponses).length}</strong>`;
+    document.getElementById("resultat").innerHTML = feedback;
+}
+    function speakWord(word) {
+            let speech = new SpeechSynthesisUtterance(word);
+            speech.lang = "en-US";
+            speech.rate = 1;
+            speech.pitch = 1;
+            window.speechSynthesis.speak(speech);
+        }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niveau - [[${niveau}]]</title>
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <script>
+        // Attendre 5 secondes avant la redirection
+        setTimeout(function() {
+            let niveau = document.getElementById("niveau").innerText;
+            if (niveau === "Débutant") {
+                window.location.href = "/cours/debutant";
+            } else if (niveau === "Avancé") {
+                window.location.href = "/cours/avance";
+            } else if (niveau === "Extrême") {
+                window.location.href = "/cours/extreme";
+            }
+        }, 5000); // 5000 millisecondes = 5 secondes
+    </script>
+</head>
+<body>
+    <h1>Bienvenue au niveau <span id="niveau" th:text="${niveau}"></span> !</h1>
+    <p>Chargement de votre espace d'apprentissage...</p>
+</body>
+</html>
+

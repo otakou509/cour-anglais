@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Général</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .quiz-section {
+            margin-top: 30px;
+        }
+        .question {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .option {
+            display: block;
+            margin: 5px;
+            cursor: pointer;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #2471a3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-section">
+    <h2>Quiz Général</h2>
+    <div id="quiz-container">
+        <p class="question"></p>
+        <div id="options"></div>
+        <button onclick="checkAnswer()">Valider</button>
+        <p id="result"></p>
+    </div>
+</div>
+
+<script>
+    const questions = [
+        // Verbes essentiels (3)
+        {
+            question: "Que Signifie 'to eat' ?",
+            options: ["Dormir", "Manger", "Boire"],
+            correctIndex: 1
+        },
+        {
+            question: "Comment dit on 'marcher' en Englais?",
+            options: ["Run", "Walk", "Jump"],
+            correctIndex: 1
+        },
+        {
+            question: "Veuillez choisir le verbe correcte: I ___ my homework every day.",
+            options: ["make", "do", "take"],
+            correctIndex: 1
+        },
+        // Prépositions de lieu et de temps (3)
+        {
+            question: "The book is ___ the table.",
+            options: ["on", "in", "at"],
+            correctIndex: 0
+        },
+        {
+            question: "I go to school ___ 8 o'clock.",
+            options: ["on", "at", "in"],
+            correctIndex: 1
+        },
+        {
+            question: "She lives ___ Paris.",
+            options: ["in", "on", "at"],
+            correctIndex: 0
+        },
+        // Poser des questions simples (3)
+        {
+            question: "___ is your favorite color?",
+            options: ["Where", "What", "Who"],
+            correctIndex: 1
+        },
+        {
+            question: "___ do you go to school?",
+            options: ["How", "Why", "Who"],
+            correctIndex: 0
+        },
+        {
+            question: "___ is calling me?",
+            options: ["Where", "What", "Who"],
+            correctIndex: 2
+        },
+        // Parler de sa routine quotidienne (2)
+        {
+                question: "Que faites vous en premier le matin?",
+            options: ["I sleep again", "I brush my teeth", "I go shopping"],
+            correctIndex: 1
+        },
+        {
+            question: "When do you go to bed?",
+            options: ["At night", "At breakfast", "At lunch"],
+            correctIndex: 0
+        }
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function showQuestion() {
+        let questionElement = document.querySelector(".question");
+        let optionsContainer = document.getElementById("options");
+
+        let currentQuestion = questions[currentQuestionIndex];
+        questionElement.textContent = currentQuestion.question;
+
+        optionsContainer.innerHTML = "";
+        currentQuestion.options.forEach((option, index) => {
+            optionsContainer.innerHTML += `
+                <label class="option">
+                    <input type="radio" name="q" value="${index}"> ${option}
+                </label><br>
+            `;
+        });
+
+        document.getElementById("result").innerHTML = "";
+    }
+
+    function checkAnswer() {
+        let selected = document.querySelector('input[name="q"]:checked');
+        let resultText = document.getElementById("result");
+
+        if (selected) {
+            let selectedIndex = parseInt(selected.value);
+            if (selectedIndex === questions[currentQuestionIndex].correctIndex) {
+                resultText.innerHTML = "✅ Bonne réponse !";
+                resultText.style.color = "green";
+                score++;
+            } else {
+                resultText.innerHTML = "❌ Mauvaise réponse.";
+                resultText.style.color = "red";
+            }
+
+            setTimeout(() => {
+                currentQuestionIndex++;
+                if (currentQuestionIndex < questions.length) {
+                    showQuestion();
+                } else {
+                    showFinalResult();
+                }
+            }, 2000);
+        } else {
+            resultText.innerHTML = "Veuillez choisir une réponse.";
+            resultText.style.color = "orange";
+        }
+    }
+
+    function showFinalResult() {
+        let quizContainer = document.getElementById("quiz-container");
+        let finalScore = (score / questions.length) * 100;
+
+        if (finalScore >= 80) {
+            quizContainer.innerHTML = `<h3>🎉 Bravo ! Vous avez réussi avec ${finalScore.toFixed(2)} % de bonnes réponses !<br>Felicitation vous passez au troisieme Niveau.</h3>`;
+            setTimeout(() => {
+                window.location.href = "/cours/debutant";
+            }, 3000);
+        } else {
+            quizContainer.innerHTML = `<h3>❌ Vous avez obtenu ${finalScore.toFixed(2)} % de bonnes réponses.<br>Vous allez être redirigé Dans le Quiz</h3>`;
+            setTimeout(() => {
+                window.location.href = "/cours/debutant/n2l2/QuizN2"; 
+            }, 3000);
+        }
+    }
+
+    showQuestion();
+</script>
+
+</body>
+</html>

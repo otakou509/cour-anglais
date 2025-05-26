@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Collocations fréquentes - Exemples et Exercices</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1, h2 {
+      color: #2c3e50;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #3498db;
+      color: white;
+    }
+
+    .exercice {
+      background-color: #fef9e7;
+      padding: 20px;
+      border-left: 5px solid #f1c40f;
+      margin-top: 30px;
+    }
+
+    .correction {
+      display: none;
+      background-color: #eafaf1;
+      padding: 20px;
+      border-left: 5px solid #2ecc71;
+      margin-top: 20px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #2980b9;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2471a3;
+    }
+    .next-button {
+            margin-top: 20px;
+            font-size: 18px;
+            background-color: #2980b9;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .next-button:hover {
+            background-color: #1f6690;
+        }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Collocations fréquentes en anglais</h1>
+
+    <h2>Exemples avec traduction</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Collocation</th>
+          <th>Exemple en anglais</th>
+          <th>Traduction française</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Make a decision</td>
+          <td>He made an important decision yesterday.</td>
+          <td>Il a pris une décision importante hier.</td>
+        </tr>
+        <tr>
+          <td>Take a break</td>
+          <td>Let’s take a break after lunch.</td>
+          <td>Faisons une pause après le déjeuner.</td>
+        </tr>
+        <tr>
+          <td>Catch a cold</td>
+          <td>I caught a cold last weekend.</td>
+          <td>J’ai attrapé un rhume le week-end dernier.</td>
+        </tr>
+        <tr>
+          <td>Do homework</td>
+          <td>She always does her homework before dinner.</td>
+          <td>Elle fait toujours ses devoirs avant le dîner.</td>
+        </tr>
+        <tr>
+          <td>Have a good time</td>
+          <td>We had a good time at the party.</td>
+          <td>Nous nous sommes bien amusés à la fête.</td>
+        </tr>
+      </tbody>
+    </table>
+
+   <div class="exercice">
+  <h2>🧪 Exercice : Complète avec la bonne collocation</h2>
+  <form id="quizForm">
+    <ol>
+      <li>Yesterday, I <input type="text" id="q1" placeholder="..."> a cold because of the rain.</li>
+      <li>You should <input type="text" id="q2" placeholder="..."> a break and relax a bit.</li>
+      <li>He didn’t <input type="text" id="q3" placeholder="..."> his homework last night.</li>
+      <li>They <input type="text" id="q4" placeholder="..."> a good time on vacation.</li>
+      <li>I need to <input type="text" id="q5" placeholder="..."> a decision quickly.</li>
+    </ol>
+
+    <button type="button" onclick="corriger()">Corriger</button>
+  </form>
+
+  <div class="correction" id="correction"></div>
+</div>
+
+<script>
+  function corriger() {
+    const bonnesReponses = {
+      q1: "caught",
+      q2: "take",
+      q3: "do",
+      q4: "had",
+      q5: "make"
+    };
+
+    let resultat = "";
+    let score = 0;
+
+    for (let id in bonnesReponses) {
+      const reponse = document.getElementById(id).value.trim().toLowerCase();
+      const correcte = bonnesReponses[id];
+      if (reponse === correcte) {
+        resultat += `<p class="correct">✅ ${id.toUpperCase()} : Correct</p>`;
+        score++;
+      } else {
+        resultat += `<p class="incorrect">❌ ${id.toUpperCase()} : Faux (réponse : <strong>${correcte}</strong>)</p>`;
+      }
+    }
+
+    resultat += `<hr><strong>🎯 Score : ${score}/5</strong>`;
+    document.getElementById("correction").innerHTML = resultat;
+    document.getElementById("correction").style.display = "block";
+  }
+</script>
+<br><div style="text-align: center;">
+     <button  class="next-button" onclick="window.location.href='/cours/avance/A2/co'"><--</button>
+
+    <button  class="next-button" onclick="window.location.href='/cours/avance/A2/Qcod'">--></button>
+    </div>
+</body>
+</html>

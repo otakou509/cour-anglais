@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leçon - Apple</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f5f5f5;
+            margin: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .content {
+            background: white;
+            padding: 20px;
+            display: inline-block;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        img {
+            width: 200px;
+            margin-top: 10px;
+        }
+          .next-button {
+            margin-top: 20px;
+            font-size: 18px;
+            background-color: #2980b9;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .next-button:hover {
+            background-color: #1f6690;
+        }
+    </style>
+</head>
+<body>
+    <h1> School</h1>
+    <div class="content">
+        <img src="/images/School.jpg" alt="Image d'une École">
+        <p><strong>Mot :</strong> School</p>
+        <p><strong>Prononciation :</strong> /skuːl/</p>
+        <p><strong>Traduction :</strong> École</p>
+          <br>
+        <button class="next-button" onclick="speakWord('School')">🔊 </button>
+    </div>
+    <br>
+       <!-- Bouton Next -->
+       <button class="next-button" onclick="PreviousLesson()"><--</button>
+    <button class="next-button" onclick="goToNextLesson()">--></button>
+    <script>
+          // Fonction pour aller à la page suivante
+        function goToNextLesson() {
+            window.location.href = "/cours/debutant/lecon1/hello"; // Remplacez par la vraie URL de la prochaine leçon
+        }
+         function PreviousLesson() {
+            window.location.href = "/cours/debutant/lecon1/apple"; // Remplacez par la vraie URL de la prochaine leçon
+        }
+        function speakWord(word) {
+            let speech = new SpeechSynthesisUtterance(word);
+            speech.lang = "en-US";
+            speech.rate = 1;
+            speech.pitch = 1;
+            window.speechSynthesis.speak(speech);
+        }
+    </script>
+    
+   
+</body>
+</html>

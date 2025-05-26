@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Phrasal Verbs Complexes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f9ff;
+      margin: 0;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    .explication {
+      margin-bottom: 40px;
+    }
+
+    .phrasal-verb {
+      margin: 15px 0;
+    }
+
+    .example {
+      margin-left: 20px;
+      color: #2c3e50;
+    }
+
+    .translation {
+      margin-left: 20px;
+      font-style: italic;
+      color: #555;
+    }
+
+    .exercice {
+      background-color: #f0f9ff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    ol {
+      padding-left: 20px;
+    }
+
+    input[type="text"] {
+      padding: 5px;
+      width: 100px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #2980b9;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #21618c;
+    }
+
+    .correction {
+      margin-top: 20px;
+      display: none;
+    }
+
+    .correct {
+      color: green;
+    }
+
+    .incorrect {
+      color: red;
+    }
+
+    hr {
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Phrasal Verbs Complexes</h1>
+
+  <div class="explication">
+    <h2>🧠 Explication détaillée</h2>
+    <p>
+      Les <strong>phrasal verbs complexes</strong> sont des verbes composés qui incluent un verbe principal et deux particules (souvent une préposition + un adverbe). Ces verbes prennent souvent un sens totalement différent du verbe original.
+    </p>
+    <p>
+      Apprendre à les reconnaître est essentiel pour parler l’anglais naturellement. Voici quelques-uns des plus utilisés, avec leur signification et un exemple traduit.
+    </p>
+
+    <div class="phrasal-verb">
+      <strong>1. Get away with</strong><br>
+      ➤ Signification : S’en sortir sans être puni<br>
+      <span class="example">Ex: He got away with cheating on the test.</span><br>
+      <span class="translation">→ Il s’est sorti d’avoir triché à l’examen.</span>
+    </div>
+
+    <div class="phrasal-verb">
+      <strong>2. Come up with</strong><br>
+      ➤ Signification : Trouver une idée<br>
+      <span class="example">Ex: She came up with a new plan.</span><br>
+      <span class="translation">→ Elle a proposé un nouveau plan.</span>
+    </div>
+
+    <div class="phrasal-verb">
+      <strong>3. Look forward to</strong><br>
+      ➤ Signification : Avoir hâte de<br>
+      <span class="example">Ex: I look forward to seeing you again.</span><br>
+      <span class="translation">→ J’ai hâte de te revoir.</span>
+    </div>
+
+    <div class="phrasal-verb">
+      <strong>4. Keep up with</strong><br>
+      ➤ Signification : Suivre le rythme de<br>
+      <span class="example">Ex: I can't keep up with all this work!</span><br>
+      <span class="translation">→ Je n’arrive pas à suivre tout ce travail !</span>
+    </div>
+
+    <div class="phrasal-verb">
+      <strong>5. Run out of</strong><br>
+      ➤ Signification : Ne plus avoir de<br>
+      <span class="example">Ex: We ran out of coffee.</span><br>
+      <span class="translation">→ Nous n’avons plus de café.</span>
+    </div>
+  </div>
+
+  <div class="exercice">
+    <h2>🧪 Exercice : Complète avec le bon phrasal verb</h2>
+    <form id="quizForm">
+      <ol>
+        <li>He <input type="text" id="q1" placeholder="..."> cheating and nobody noticed.</li>
+        <li>I <input type="text" id="q2" placeholder="..."> seeing you next week!</li>
+        <li>We <input type="text" id="q3" placeholder="..."> ideas to improve the project.</li>
+        <li>Can you <input type="text" id="q4" placeholder="..."> me? I walk very fast.</li>
+        <li>Oh no! We’ve <input type="text" id="q5" placeholder="..."> sugar.</li>
+      </ol>
+      <button type="button" onclick="corriger()">Corriger</button>
+    </form>
+
+    <div class="correction" id="correction"></div>
+  </div>
+</div>
+
+<script>
+  function corriger() {
+    const bonnesReponses = {
+      q1: "got away with",
+      q2: "look forward to",
+      q3: "came up with",
+      q4: "keep up with",
+      q5: "run out of"
+    };
+
+    let resultat = "";
+    let score = 0;
+
+    for (let id in bonnesReponses) {
+      const reponse = document.getElementById(id).value.trim().toLowerCase();
+      const correcte = bonnesReponses[id];
+      if (reponse === correcte) {
+        resultat += `<p class="correct">✅ ${id.toUpperCase()} : Correct</p>`;
+        score++;
+      } else {
+        resultat += `<p class="incorrect">❌ ${id.toUpperCase()} : Faux (réponse : <strong>${correcte}</strong>)</p>`;
+      }
+    }
+
+    resultat += `<hr><strong>🎯 Score : ${score}/5</strong>`;
+    document.getElementById("correction").innerHTML = resultat;
+    document.getElementById("correction").style.display = "block";
+  }
+</script>
+<br> 
+        <div style="text-align: center;">
+     <button  class="next-button" onclick="window.location.href='/cours/avance/A2/ph'"><--</button>
+
+    <button  class="next-button" onclick="window.location.href='/cours/avance/A2/Qph'">--></button>
+    </div>
+</body>
+</html>

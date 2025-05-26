@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leçon 3 - Salutations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        .quiz-section {
+            margin-top: 30px;
+        }
+        .question {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .option {
+            display: block;
+            margin: 5px;
+            cursor: pointer;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #219150;
+        }
+        /* Style du bouton Next */
+        .next-button {
+            margin-top: 20px;
+            font-size: 18px;
+            background-color: #2980b9;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .next-button:hover {
+            background-color: #1f6690;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Leçon 3 : Salutations</h1>
+    <p>Apprenez les salutations courantes en anglais et leur prononciation.</p>
+
+    <table>
+        <tr>
+            <th>Salutation en anglais</th>
+            <th>Prononciation (API)</th>
+            <th>Traduction</th>
+        </tr>
+        <tr>
+            <td>Hello</td>
+            <td>/həˈloʊ/</td>
+            <td>Bonjour</td>
+        </tr>
+        <tr>
+            <td>Good morning</td>
+            <td>/ɡʊd ˈmɔː.nɪŋ/</td>
+            <td>Bonjour (le matin)</td>
+        </tr>
+        <tr>
+            <td>Good evening</td>
+            <td>/ɡʊd ˈiːv.nɪŋ/</td>
+            <td>Bonsoir</td>
+        </tr>
+        <tr>
+            <td>How are you?</td>
+            <td>/haʊ ɑːr juː/</td>
+            <td>Comment ça va ?</td>
+        </tr>
+        <tr>
+            <td>Good night</td>
+            <td>/ɡʊd naɪt/</td>
+            <td>Bonne nuit</td>
+        </tr>
+    </table>
+
+    <br>
+    <button class="next-button" onclick="window.location.href='/cours/debutant'"><--</button>
+
+        <button class="next-button" onclick="window.location.href='/cours/debutant/lecon3/Morning'">--></button>
+
+    <script>
+        function checkAnswer() {
+            var selected = document.querySelector('input[name="q1"]:checked');
+            var resultText = document.getElementById("result");
+
+            if (selected) {
+                if (selected.value === "1") {
+                    resultText.innerHTML = "✅ Bonne réponse !";
+                    resultText.style.color = "green";
+                } else {
+                    resultText.innerHTML = "❌ Mauvaise réponse. Réessayez !";
+                    resultText.style.color = "red";
+                }
+            } else {
+                resultText.innerHTML = "Veuillez choisir une réponse.";
+                resultText.style.color = "orange";
+            }
+        }
+
+        // Fonction pour aller à la page suivante
+       /* function goToNextLesson() {
+            window.location.href = "/cours/debutant/lecon3/Morning"; // Remplacez par la vraie URL de la prochaine leçon
+        }*/
+    </script>
+
+</body>
+</html>
